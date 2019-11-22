@@ -1,0 +1,15 @@
+kind: pipeline
+name: default
+
+workspace:
+  base: /go
+  path: src/github.com/rafaelescrich/go-reviewdog-pipeline
+
+steps:
+  - name: lint
+    image: golang
+    commands:
+      - mkdir -p /var/lint
+      - wget -O - -q https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s v1.21.0
+      - wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s v0.9.13
+      - golangci-lint run ./... | reviewdog -efm="%f:%l:%c: %m" -diff="git diff master"

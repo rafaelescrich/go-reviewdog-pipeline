@@ -8,6 +8,8 @@ workspace:
 steps:
   - name: lint
     image: golang:latest
+     environment:
+      - REVIEWDOG_GITHUB_API_TOKEN=$$REVIEWDOG_GITHUB_API_TOKEN
     commands:
       # - mkdir -p /var/lint
       # - wget -O golanci-lint-install.sh https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh

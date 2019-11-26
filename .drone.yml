@@ -16,4 +16,3 @@ steps:
       - wget -O reviewdog-install https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh
       - chmod +x reviewdog-install.sh
       - /bin/bash ./reviewdog-install.sh v0.9.13
-      - golangci-lint run ./... | reviewdog -efm="%f:%l:%c: %m" -diff="git diff master"

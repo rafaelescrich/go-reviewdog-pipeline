@@ -17,4 +17,4 @@ steps:
       - wget -O reviewdog-install.sh https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh
       - chmod +x reviewdog-install.sh
       - /bin/bash ./reviewdog-install.sh v0.9.13
-      - golint ./... | bin/reviewdog -f=golint -diff="git diff master"
+      - golint ./... | bin/reviewdog -f=golint -ci=droneio

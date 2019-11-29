@@ -8,11 +8,14 @@ workspace:
 steps:
   - name: lint
     image: golang:latest
+    # environment:
+    #   - REVIEWDOG_GITHUB_API_TOKEN:$$REVIEWDOG_TOKEN
     commands:
       # - mkdir -p /var/lint
       # - wget -O golanci-lint-install.sh https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh
       # - chmod +x golanci-lint-install.sh
       # - /bin/bash ./golanci-lint-install.sh v1.21.0
+      # test pr with secret
       - go get -u golang.org/x/lint/golint
       - wget -O reviewdog-install.sh https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh
       - chmod +x reviewdog-install.sh
